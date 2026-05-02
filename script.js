@@ -19,14 +19,14 @@ const screenshotImages = document.querySelectorAll(".screenshot__image img");
 
 const PAGE_META = {
   es: {
-    title: "StatFlow CEP | Control Estadístico de Procesos",
+    title: "StatFlow CEP | Software de Control Estadístico de Procesos",
     description:
-      "StatFlow CEP: software estadístico de Control Estadístico de Procesos desarrollado en R Shiny por estudiantes de Ingeniería Industrial de la Universidad del Magdalena.",
+      "StatFlow CEP es un software de Control Estadístico de Procesos desarrollado en R Shiny para análisis de capacidad, normalidad, cartas de control, monitoreo en tiempo real e informes empresariales.",
   },
   en: {
-    title: "StatFlow CEP | Statistical Process Control",
+    title: "StatFlow CEP | Statistical Process Control Software",
     description:
-      "StatFlow CEP: Statistical Process Control software developed in R Shiny by Industrial Engineering students at Universidad del Magdalena.",
+      "StatFlow CEP is Statistical Process Control software developed in R Shiny for capability analysis, normality, control charts, real-time monitoring and business reports.",
   },
 };
 
@@ -246,10 +246,7 @@ function setLanguage(lang) {
   document.body.dataset.lang = safeLang;
   document.title = PAGE_META[safeLang].title;
 
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute("content", PAGE_META[safeLang].description);
-  }
+  updatePageMetadata(safeLang);
 
   textNodes.forEach(({ node, original, key }) => {
     const translated = safeLang === "en" ? TRANSLATIONS.en[key] : normalizedText(original);
@@ -269,6 +266,22 @@ function setLanguage(lang) {
 
   updateWhatsAppLinks(safeLang);
   localStorage.setItem("statflow-language", safeLang);
+}
+
+function setMetaContent(selector, value) {
+  const element = document.querySelector(selector);
+  if (element) element.setAttribute("content", value);
+}
+
+function updatePageMetadata(lang) {
+  const meta = PAGE_META[lang] ?? PAGE_META.es;
+
+  setMetaContent('meta[name="description"]', meta.description);
+  setMetaContent('meta[property="og:title"]', meta.title);
+  setMetaContent('meta[property="og:description"]', meta.description);
+  setMetaContent('meta[name="twitter:title"]', meta.title);
+  setMetaContent('meta[name="twitter:description"]', meta.description);
+  setMetaContent('meta[property="og:locale"]', lang === "en" ? "en_US" : "es_CO");
 }
 
 function updateWhatsAppLinks(lang = "es") {
