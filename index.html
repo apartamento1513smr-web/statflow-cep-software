@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="StatFlow CEP: software estad&iacute;stico de Control Estad&iacute;stico de Procesos desarrollado en R Shiny por estudiantes de Ingenier&iacute;a Industrial de la Universidad del Magdalena."
+    />
+    <title>StatFlow CEP | Control Estad&iacute;stico de Procesos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon/favicon-48.png" />
+    <link rel="icon" href="assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="inicio">
+      <nav class="navbar" aria-label="Navegaci&oacute;n principal">
+        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+          <span class="brand__mark">
+            <img src="assets/statflow-logo.jpeg" alt="" />
+          </span>
+          <span class="brand__copy">
+            <strong>StatFlow CEP</strong>
+            <small>StatFlow CEP</small>
+          </span>
+        </a>
+
+        <button class="nav-toggle" type="button" aria-label="Abrir men&uacute;" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-menu">
+          <a href="#inicio">Inicio</a>
+          <a href="#modulos">M&oacute;dulos</a>
+          <a href="#formatos">Formatos</a>
+          <a href="#aplicabilidad">Aplicabilidad</a>
+          <a href="#equipo">Equipo</a>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Cambiar idioma">
+            <span>ES</span>
+            <strong>EN</strong>
+          </button>
+          <button class="nav-cta js-shiny-link" type="button">Acceder</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__copy reveal">
+          <div class="hero-brand" aria-label="Identidad StatFlow">
+            <img src="assets/statflow-logo.jpeg" alt="StatFlow" />
+          </div>
+          <span class="eyebrow">R Shiny + Control Estad&iacute;stico de Procesos</span>
+          <h1>StatFlow CEP: Control Estad&iacute;stico de Procesos desde la web</h1>
+          <div class="hero__actions">
+            <button class="btn btn--primary js-shiny-link" type="button">
+              Ingresar al software
+            </button>
+            <a class="btn btn--android" href="downloads/statflow-cep-android.apk" download>
+              Descargar APK Android
+            </a>
+          </div>
+          <div class="trust-strip" aria-label="Caracter&iacute;sticas principales">
+            <span>Aplicaci&oacute;n web Shiny</span>
+            <span>APK Android</span>
+            <span>Datos guardados</span>
+            <span>IA para informes</span>
+          </div>
+        </div>
+
+        <div class="product-stage reveal" aria-label="Mockup visual del dashboard StatFlow CEP">
+          <div class="dashboard-window">
+            <div class="window-bar">
+              <div class="window-dots" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="window-title">StatFlow CEP / L&iacute;nea de proceso</span>
+              <span class="window-status">Fase 2 activa</span>
+            </div>
+
+            <div class="dashboard-layout">
+              <aside class="dashboard-sidebar" aria-hidden="true">
+                <span class="sidebar-logo"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </aside>
+
+              <div class="dashboard-main">
+                <div class="kpi-row">
+                  <article class="kpi-card">
+                    <span>Cp</span>
+                    <strong>1.48</strong>
+                    <small>Proceso capaz</small>
+                  </article>
+                  <article class="kpi-card kpi-card--cyan">
+                    <span>Cpk</span>
+                    <strong>1.21</strong>
+                    <small>Leve descentramiento</small>
+                  </article>
+                  <article class="kpi-card kpi-card--gold">
+                    <span>PNC</span>
+                    <strong>0.42%</strong>
+                    <small>No conformidad estimada</small>
+                  </article>
+                </div>
+
+                <div class="chart-panel">
+                  <div class="panel-title">
+                    <span>Carta de control X&#772;-R</span>
+                    <strong>2 puntos en revisi&oacute;n</strong>
+                  </div>
+                  <div class="control-visual" aria-hidden="true">
+                    <span class="control-limit control-limit--top"></span>
+                    <span class="control-limit control-limit--center"></span>
+                    <span class="control-limit control-limit--bottom"></span>
+                    <svg viewBox="0 0 560 230">
+                      <polyline
+                        points="8,142 58,112 108,132 158,92 208,114 258,78 308,104 358,96 408,126 458,86 508,118 552,99"
+                      />
+                      <g>
+                        <circle cx="8" cy="142" r="6" />
+                        <circle cx="58" cy="112" r="6" />
+                        <circle cx="108" cy="132" r="6" />
+                        <circle cx="158" cy="92" r="6" />
+                        <circle cx="208" cy="114" r="6" />
+                        <circle cx="258" cy="78" r="6" />
+                        <circle cx="308" cy="104" r="6" />
+                        <circle cx="358" cy="96" r="6" />
+                        <circle cx="408" cy="126" r="6" />
+                        <circle cx="458" cy="86" r="6" />
+                        <circle cx="508" cy="118" r="6" />
+                        <circle cx="552" cy="99" r="6" />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="micro-panels">
+                  <div class="histogram" aria-label="Histograma simulado">
+                    <span style="height: 32%"></span>
+                    <span style="height: 54%"></span>
+                    <span style="height: 78%"></span>
+                    <span style="height: 88%"></span>
+                    <span style="height: 64%"></span>
+                    <span style="height: 46%"></span>
+                    <span style="height: 28%"></span>
+                  </div>
+                  <div class="report-preview">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <strong>Informe con IA listo</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-note floating-note--left">
+            <span>Exportaci&oacute;n</span>
+            <strong>PDF</strong>
+          </div>
+          <div class="floating-note floating-note--right">
+            <span>Modo</span>
+            <strong>Operario</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-product" id="que-es">
+        <div class="about-product__content reveal">
+          <span class="eyebrow">&iquest;Qu&eacute; es StatFlow CEP?</span>
+          <h2>Un proyecto acad&eacute;mico con enfoque profesional para analizar procesos reales.</h2>
+          <p>
+            StatFlow CEP es un software estad&iacute;stico de Control Estad&iacute;stico de
+            Procesos desarrollado como proyecto acad&eacute;mico en la Universidad del
+            Magdalena por estudiantes de Ingenier&iacute;a Industrial. Est&aacute; disponible
+            como aplicaci&oacute;n web en Shiny y como APK Android.
+          </p>
+        </div>
+        <div class="about-product__cards reveal">
+          <article>
+            <span>Instituci&oacute;n</span>
+            <strong>Universidad del Magdalena</strong>
+          </article>
+          <article>
+            <span>Programa</span>
+            <strong>Ingenier&iacute;a Industrial</strong>
+          </article>
+          <article>
+            <span>Plataformas</span>
+            <strong>Web Shiny + APK Android</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="section modules section--mist" id="modulos">
+        <div class="section__heading reveal">
+          <span class="eyebrow">M&oacute;dulos principales</span>
+          <h2>Herramientas para capacidad, normalidad, cartas, monitoreo e informes.</h2>
+        </div>
+
+        <div class="modules-grid">
+          <article class="module-card module-card--wide reveal">
+            <div>
+              <span class="module-tag">Cp / Cpk / PNC</span>
+              <h3>An&aacute;lisis de capacidad</h3>
+              <p>
+                Ingreso manual o por Excel. Diagnostica si el proceso es capaz,
+                descentrado o no capaz, con lectura t&eacute;cnica de Cp, Cpk y PNC.
+              </p>
+            </div>
+            <div class="module-shot">
+              <img src="assets/capturas/analisis-capacidad.png" alt="Captura del m&oacute;dulo de an&aacute;lisis de capacidad" />
+            </div>
+          </article>
+
+          <article class="module-card reveal">
+            <span class="module-tag">Normalidad</span>
+            <h3>An&aacute;lisis de normalidad</h3>
+            <p>Incluye Shapiro-Wilk, Q-Q Plot y Boxplot para validar el comportamiento de los datos.</p>
+            <div class="module-shot">
+              <img src="assets/capturas/analisis-normalidad.png" alt="Captura del m&oacute;dulo de an&aacute;lisis de normalidad" />
+            </div>
+          </article>
+
+          <article class="module-card reveal">
+            <span class="module-tag">X&#772;-R / X&#772;-S</span>
+            <h3>Cartas de control</h3>
+            <p>Fase 1 y Fase 2 con detecci&oacute;n autom&aacute;tica de puntos fuera de control.</p>
+            <div class="module-shot">
+              <img src="assets/capturas/cartas-control.png" alt="Captura del m&oacute;dulo de cartas de control" />
+            </div>
+          </article>
+
+          <article class="module-card reveal">
+            <span class="module-tag">Canvas JS</span>
+            <h3>Monitoreo en tiempo real</h3>
+            <p>Simulador ajustable, visualizaci&oacute;n en Canvas JavaScript y modo operario para planta.</p>
+            <div class="module-shot">
+              <img src="assets/capturas/fase-2-monitoreo.png" alt="Captura del monitoreo en tiempo real Fase 2" />
+            </div>
+          </article>
+
+          <article class="module-card reveal">
+            <span class="module-tag">IA + Reportes</span>
+            <h3>Informes empresariales</h3>
+            <p>Generador en 4 pasos con an&aacute;lisis por IA y exportaci&oacute;n HTML, Excel y PDF.</p>
+            <div class="module-shot">
+              <img src="assets/capturas/informes-empresariales.png" alt="Captura del m&oacute;dulo de informes empresariales" />
+            </div>
+          </article>
+
+          <article class="module-card module-card--report reveal">
+            <span class="module-tag">Datos guardados</span>
+            <h3>Historial de an&aacute;lisis</h3>
+            <p>Resultados guardados para comparaci&oacute;n, consulta posterior y descarga de evidencia.</p>
+            <div class="module-shot">
+              <img src="assets/capturas/historial-analisis.png" alt="Captura del historial de an&aacute;lisis" />
+            </div>
+            <button class="text-link js-shiny-link" type="button">Abrir StatFlow CEP</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="section formats" id="formatos">
+        <div class="section__heading section__heading--split reveal">
+          <div>
+            <span class="eyebrow">Formatos de captura</span>
+            <h2>Plantillas listas para registrar mediciones y cargar datos al an&aacute;lisis.</h2>
+          </div>
+          <p>
+            Descarga los formatos base, diligencia las mediciones del proceso y
+            utiliza la informaci&oacute;n como insumo para los m&oacute;dulos de StatFlow CEP.
+          </p>
+        </div>
+
+        <div class="formats-grid">
+          <article class="format-card reveal">
+            <span>XLSX</span>
+            <div>
+              <h3>Formato para toma de muestras</h3>
+              <p>
+                Plantilla en Excel para organizar datos de proceso antes del an&aacute;lisis
+                de capacidad, normalidad o cartas de control.
+              </p>
+            </div>
+            <a
+              class="btn btn--download"
+              href="formatos/FORMATO%20VIRGEN%20DE%20MEDICIONES.xlsx"
+              download
+            >
+              Descargar formato
+            </a>
+          </article>
+
+          <article class="format-card format-card--apk reveal">
+            <span>APK</span>
+            <div>
+              <h3>Aplicaci&oacute;n Android</h3>
+              <p>
+                Archivo instalable para acceder a StatFlow CEP desde dispositivos
+                m&oacute;viles Android.
+              </p>
+            </div>
+            <a
+              class="btn btn--download btn--download-dark"
+              href="downloads/statflow-cep-android.apk"
+              download
+            >
+              Descargar APK
+            </a>
+          </article>
+
+          <article class="format-note reveal">
+            <strong>Uso recomendado</strong>
+            <p>
+              Conserva la estructura del archivo para evitar errores al importar
+              datos. Puedes duplicarlo por proceso, l&iacute;nea, lote o periodo de
+              medici&oacute;n.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section video-section" id="video">
+        <div class="section__heading section__heading--split reveal">
+          <div>
+            <span class="eyebrow">Video de presentaci&oacute;n</span>
+            <h2>Pr&oacute;ximamente: una demostraci&oacute;n guiada de StatFlow CEP.</h2>
+          </div>
+          <p>
+            Este espacio est&aacute; reservado para anexar el video oficial del software:
+            recorrido por m&oacute;dulos, carga de datos, interpretaci&oacute;n de resultados y
+            generaci&oacute;n de informes.
+          </p>
+        </div>
+
+        <div class="video-placeholder reveal">
+          <div class="video-placeholder__screen">
+            <div class="video-placeholder__play" aria-hidden="true"></div>
+            <span>Video de presentaci&oacute;n</span>
+            <strong>Disponible pr&oacute;ximamente</strong>
+          </div>
+          <div class="video-placeholder__notes">
+            <article>
+              <span>01</span>
+              <p>Recorrido por el panel principal y selecci&oacute;n de m&oacute;dulos.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <p>Ejemplo de an&aacute;lisis CEP con datos reales del proceso.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <p>Generaci&oacute;n de informes empresariales y exportaci&oacute;n.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section applicability section--ink" id="aplicabilidad">
+        <div class="section__heading reveal">
+          <span class="eyebrow">Aplicabilidad</span>
+          <h2>Control estad&iacute;stico para procesos industriales, servicios y formaci&oacute;n acad&eacute;mica.</h2>
+        </div>
+
+        <div class="industry-grid">
+          <span>Manufactura</span>
+          <span>Hoteler&iacute;a</span>
+          <span>Salud</span>
+          <span>Banca</span>
+          <span>Restaurantes</span>
+          <span>Call centers</span>
+          <span>Educaci&oacute;n</span>
+          <span>Construcci&oacute;n</span>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-card reveal">
+            <div class="case-card__logo">
+              <img src="assets/empresas/la-roca.jpg" alt="Hielo y Agua La Roca" />
+            </div>
+            <div>
+              <span>Caso aplicado</span>
+              <h3>Hielo y Agua La Roca</h3>
+              <p>Uso orientado al an&aacute;lisis de procesos productivos y seguimiento de variabilidad.</p>
+            </div>
+          </article>
+          <article class="case-card reveal">
+            <div class="case-card__logo">
+              <img src="assets/empresas/hostal-casa-roma.png" alt="Hostal Casa Roma" />
+            </div>
+            <div>
+              <span>En desarrollo</span>
+              <h3>Hostal Casa Roma</h3>
+              <p>Aplicaci&oacute;n del enfoque CEP a indicadores de servicio y operaci&oacute;n hotelera.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section differential" id="diferencial">
+        <div class="section__heading reveal">
+          <span class="eyebrow">Diferencial</span>
+          <h2>Un software accesible para aprender, documentar y operar an&aacute;lisis CEP.</h2>
+        </div>
+
+        <div class="differential-grid">
+          <article class="differential-card reveal">IA integrada para an&aacute;lisis t&eacute;cnicos</article>
+          <article class="differential-card reveal">Informes empresariales exportables</article>
+          <article class="differential-card reveal">Modo operario para planta</article>
+          <article class="differential-card reveal">No requiere instalar R</article>
+          <article class="differential-card reveal">No requiere conocimientos estad&iacute;sticos avanzados</article>
+          <article class="differential-card reveal">Gratuito para usuarios acad&eacute;micos</article>
+          <article class="differential-card reveal">Base multiidioma preparada</article>
+          <article class="differential-card reveal">Disponible como web y APK Android</article>
+        </div>
+      </section>
+
+      <section class="section team section--mist" id="equipo">
+        <div class="section__heading reveal">
+          <span class="eyebrow">Equipo desarrollador</span>
+          <h2>Proyecto construido desde Ingenier&iacute;a Industrial con acompa&ntilde;amiento acad&eacute;mico.</h2>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card team-card--lead reveal">
+            <div class="team-card__photo team-card__photo--landscape">
+              <img src="assets/equipo/carlos-cadena.jpg" alt="Carlos Arturo Cadena Cochero" />
+            </div>
+            <div class="team-card__body">
+              <span>L&iacute;der del proyecto</span>
+              <h3>Carlos Arturo Cadena Cochero</h3>
+              <strong>Octavo semestre</strong>
+              <p>
+                Estudiante de Ingenier&iacute;a Industrial y administrador de propiedades
+                tur&iacute;sticas. Lidera la gesti&oacute;n integral del proyecto, responsable
+                del dise&ntilde;o, programaci&oacute;n e implementaci&oacute;n en R Shiny.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-card__photo team-card__photo--portrait team-card__photo--maria">
+              <img src="assets/equipo/maria-jose.jpeg" alt="Mar&iacute;a Jos&eacute; Contreras" />
+            </div>
+            <div class="team-card__body">
+              <span>Dise&ntilde;o visual</span>
+              <h3>Mar&iacute;a Jos&eacute; Contreras</h3>
+              <strong>Noveno semestre</strong>
+              <p>
+                Estudiante de Ingenier&iacute;a Industrial. Encargada de la est&eacute;tica
+                del software y apoyo en toma de decisiones durante el desarrollo del proyecto.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-card__photo team-card__photo--portrait team-card__photo--edwin">
+              <img src="assets/equipo/edwin-calderon.png" alt="Edwin Belisario Calder&oacute;n Aguilera" />
+            </div>
+            <div class="team-card__body">
+              <span>Desarrollo y programaci&oacute;n</span>
+              <h3>Edwin Belisario Calder&oacute;n Aguilera</h3>
+              <strong>Noveno semestre</strong>
+              <p>
+                Ingeniero de sistemas y estudiante de Ingenier&iacute;a Industrial.
+                Integra sus conocimientos en soluciones estad&iacute;sticas aplicadas.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card reveal">
+            <div class="team-card__photo team-card__photo--portrait team-card__photo--francisco">
+              <img src="assets/equipo/francisco-bustamante.jpeg" alt="Francisco Bustamante" />
+            </div>
+            <div class="team-card__body">
+              <span>Testing y metodolog&iacute;a</span>
+              <h3>Francisco Bustamante</h3>
+              <strong>Octavo semestre</strong>
+              <p>
+                Estudiante de Ingenier&iacute;a Industrial. Apoya en dise&ntilde;o
+                metodol&oacute;gico y pruebas del software.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card team-card--tutor reveal">
+            <div class="team-card__photo team-card__photo--portrait team-card__photo--tutor">
+              <img src="assets/equipo/tutor.jpg" alt="Manuel Jes&uacute;s Campuzano Hern&aacute;ndez" />
+            </div>
+            <div class="team-card__body">
+              <span>Tutor acad&eacute;mico</span>
+              <h3>Manuel Jes&uacute;s Campuzano Hern&aacute;ndez</h3>
+              <strong>Ingeniero Industrial · Ph.D. en Estad&iacute;stica y Optimizaci&oacute;n</strong>
+              <p>
+                El software CEP cuenta con la orientaci&oacute;n acad&eacute;mica del
+                Doctor Manuel J. Campuzano Hern&aacute;ndez, docente de la Universidad
+                del Magdalena vinculado al Programa de Ingenier&iacute;a Industrial.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta" id="acceder">
+        <div class="final-cta__card reveal">
+          <div>
+            <span class="eyebrow">Acceso al aplicativo</span>
+            <h2>Empieza a analizar tus procesos con StatFlow CEP</h2>
+            <p>
+              El aplicativo real est&aacute; desplegado en Shiny. Abre StatFlow CEP
+              en una nueva pesta&ntilde;a para cargar datos, revisar m&oacute;dulos y generar
+              resultados.
+            </p>
+          </div>
+          <div class="final-cta__preview">
+            <img src="assets/capturas/panel-inicio.png" alt="Pantalla inicial del aplicativo StatFlow CEP" />
+          </div>
+          <div class="final-cta__actions">
+            <button class="btn btn--primary js-shiny-link" type="button">Ingresar al software</button>
+            <a class="btn btn--download btn--download-dark" href="downloads/statflow-cep-android.apk" download>
+              Descargar APK Android
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="floating-access js-shiny-link" type="button" aria-label="Ingresar al software">
+      <span>StatFlow CEP</span>
+      <strong>Ingresar</strong>
+    </button>
+
+    <a
+      class="whatsapp-float"
+      id="whatsappFloat"
+      href="#"
+      target="_blank"
+      rel="noopener"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16.01 3.2c-7.05 0-12.78 5.62-12.78 12.55 0 2.37.68 4.67 1.96 6.66L3.1 28.8l6.65-2.05a13.03 13.03 0 0 0 6.26 1.6c7.05 0 12.78-5.63 12.78-12.56S23.06 3.2 16.01 3.2Zm0 22.98c-2.02 0-3.98-.57-5.67-1.66l-.4-.25-3.94 1.22 1.25-3.79-.27-.42a10.18 10.18 0 0 1-1.58-5.43c0-5.73 4.76-10.39 10.61-10.39 5.86 0 10.62 4.66 10.62 10.39s-4.76 10.33-10.62 10.33Zm5.82-7.75c-.32-.16-1.9-.92-2.2-1.02-.3-.11-.51-.16-.73.16-.22.31-.84 1.02-1.03 1.23-.19.21-.38.24-.7.08-.32-.16-1.35-.49-2.57-1.56-.95-.83-1.59-1.86-1.78-2.17-.19-.32-.02-.49.14-.64.14-.14.32-.37.49-.55.16-.18.22-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.73-1.72-1-2.36-.26-.62-.53-.54-.73-.55h-.62c-.22 0-.57.08-.86.39-.3.31-1.13 1.09-1.13 2.65 0 1.56 1.16 3.07 1.32 3.28.16.21 2.28 3.42 5.53 4.8.77.33 1.37.53 1.84.68.77.24 1.47.21 2.03.13.62-.09 1.9-.76 2.17-1.49.27-.73.27-1.36.19-1.49-.08-.13-.3-.21-.62-.37Z" />
+      </svg>
+    </a>
+
+    <footer class="site-footer">
+      <div class="footer">
+        <div class="footer__brand">
+          <span class="brand__mark brand__mark--footer">
+            <img src="assets/statflow-logo.jpeg" alt="" />
+          </span>
+          <div>
+            <strong class="footer-logo-text">StatFlow CEP</strong>
+            <p>Universidad del Magdalena · Ingenier&iacute;a Industrial</p>
+          </div>
+        </div>
+        <div class="footer__links">
+          <a href="#modulos">M&oacute;dulos</a>
+          <a href="#formatos">Formatos</a>
+          <a href="#aplicabilidad">Aplicabilidad</a>
+          <a href="#equipo">Equipo</a>
+        </div>
+        <span>&copy; 2026 StatFlow CEP. Proyecto acad&eacute;mico de Ingenier&iacute;a Industrial.</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
